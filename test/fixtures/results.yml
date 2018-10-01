@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  speed: 1
+  resultable: one
+  resultable_type: Resultable
+
+two:
+  speed: 1
+  resultable: two
+  resultable_type: Resultable
