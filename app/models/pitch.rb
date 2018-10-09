@@ -1,6 +1,5 @@
 class Pitch < ApplicationRecord
   belongs_to :user
-  has_many :goals_pitches
-  has_many :goals through :goals_pitches
+  has_and_belongs_to_many :goals
   has_many :results, as: :resultable
 end

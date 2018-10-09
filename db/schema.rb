@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180928163611) do
+ActiveRecord::Schema.define(version: 20181009182320) do
 
   create_table "goals", force: :cascade do |t|
     t.integer "user_id"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20180928163611) do
   create_table "goals_pitches", id: false, force: :cascade do |t|
     t.integer "goal_id", null: false
     t.integer "pitch_id", null: false
+    t.index ["goal_id", "pitch_id"], name: "index_goals_pitches_on_goal_id_and_pitch_id"
+    t.index ["pitch_id", "goal_id"], name: "index_goals_pitches_on_pitch_id_and_goal_id"
   end
 
   create_table "pitches", force: :cascade do |t|
