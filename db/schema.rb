@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20181009182320) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "goals", force: :cascade do |t|
     t.integer "user_id"
     t.string "title", null: false
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20181009182320) do
   end
 
   create_table "goals_pitches", id: false, force: :cascade do |t|
-    t.integer "goal_id", null: false
-    t.integer "pitch_id", null: false
+    t.bigint "goal_id", null: false
+    t.bigint "pitch_id", null: false
     t.index ["goal_id", "pitch_id"], name: "index_goals_pitches_on_goal_id_and_pitch_id"
     t.index ["pitch_id", "goal_id"], name: "index_goals_pitches_on_pitch_id_and_goal_id"
   end
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20181009182320) do
   create_table "results", force: :cascade do |t|
     t.integer "speed", null: false
     t.string "resultable_type", null: false
-    t.integer "resultable_id", null: false
+    t.bigint "resultable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["resultable_type", "resultable_id"], name: "index_results_on_resultable_type_and_resultable_id"
