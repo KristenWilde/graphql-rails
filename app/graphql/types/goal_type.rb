@@ -2,7 +2,7 @@
 Types::GoalType = GraphQL::ObjectType.define do
   name 'Goal'
 
-  field :goal_id, types.ID
+  field :id, types.ID
   field :user_id, types.ID
   field :title, types.String
   field :target_speed, types.Int

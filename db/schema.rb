@@ -32,7 +32,11 @@ ActiveRecord::Schema.define(version: 20181009182320) do
 
   create_table "pitches", force: :cascade do |t|
     t.integer "user_id"
-    t.string "pitch_code", null: false
+    t.string "pitch_code"
+    t.string "staff"
+    t.string "name"
+    t.integer "octave"
+    t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
